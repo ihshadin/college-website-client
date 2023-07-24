@@ -1,31 +1,32 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { TfiAlignRight, TfiClose } from "react-icons/tfi";
-import { AuthContext } from '../../Routes/AuthProvider';
+import { AuthContext } from '../../routes/AuthProvider';
+import logo from '../../assets/images/ngc-logo.jpeg'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-    const { user, logOut } = useContext(AuthContext);
+    // const { user, logOut } = useContext(AuthContext);
 
 
-    // LogOut
-    const handleLogOut = () => {
-        logOut()
-            .then(result => { })
-            .catch(error => {
-                console.log(error.message);
-            })
-    }
+    // // LogOut
+    // const handleLogOut = () => {
+    //     logOut()
+    //         .then(result => { })
+    //         .catch(error => {
+    //             console.log(error.message);
+    //         })
+    // }
 
     // Logo Area for navbar
     const logoArea = <>
-        <Link to='/' className='font-bold text-2xl text-s uppercase'>Toy<span className='text-p'>Topia</span></Link>
+        <Link to='/' className='font-bold text-2xl uppercase'><img className='w-16 md:w-24' src={logo} alt="College Website" /></Link>
     </>
     // Nav Menu Items 
     const navItems = <>
-        <NavLink to='/' className={({ isActive }) => isActive ? "text-p" : "" + `hover:text-[#1B9C85]`}>Home</NavLink>
-        <NavLink to='/all-toys' className={({ isActive }) => isActive ? "text-p" : "" + `hover:text-[#1B9C85]`}>All Toys</NavLink>
-        {
+        <NavLink to='/' className={({ isActive }) => isActive ? "text-[#769F4F]" : "" + `hover:text-[#769F4F]`}>Home</NavLink>
+        <NavLink to='/all-toys' className={({ isActive }) => isActive ? "text-[#769F4F]" : "" + `hover:text-[#769F4F]`}>All Toys</NavLink>
+        {/* {
             user && <>
 
                 <NavLink to='/my-toys' className={({ isActive }) => isActive ? "text-p" : "" + `hover:text-[#1B9C85]`}>My Toys</NavLink>
@@ -42,7 +43,7 @@ const Header = () => {
                     <NavLink to='/login' className={({ isActive }) => isActive ? "text-p" : "" + `hover:text-[#1B9C85]`}>Sign In</NavLink>
                     <NavLink to='/register' className={({ isActive }) => isActive ? "text-p" : "" + `hover:text-[#1b9c85]`}>Sign Up</NavLink>
                 </>
-        }
+        } */}
     </>
     return (
         <header className='flex items-center justify-between py-5 px-3 xl:px-0 xl:container mx-auto relative'>
@@ -82,7 +83,7 @@ const Header = () => {
                                     </div>
                                 </div>
                                 {/* Mobile Nav menu items sectin */}
-                                <div className={`bg-white min-w-[180px] font-medium text-[#2a2a2e] duration-300 flex flex-col gap-4`}>
+                                <div className={`bg-white min-w-[180px] font-medium text-[#1a1a1a] duration-300 flex flex-col gap-4`}>
                                     {navItems}
                                 </div>
                             </div>
